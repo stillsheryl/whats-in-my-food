@@ -2,7 +2,7 @@ class FoodFacade
 
   def self.foods(keyword)
     response = conn(keyword)
-    json = JSON.parse(response.body, symbolize_names: true)
+    parse(response)
   end
 
   def self.total_search_results(keyword)
@@ -19,6 +19,10 @@ class FoodFacade
       f.params["pageSize"] = 10
       f.params["sortBy"] = "ingredients.keyword"
     end
+  end
+
+  def self.parse(response)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
 end
