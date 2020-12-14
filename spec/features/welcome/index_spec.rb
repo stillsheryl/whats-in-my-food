@@ -5,7 +5,7 @@ describe 'As a user, when I visit "/" '  do
     it 'redirects me to the "/foods" page and shows a total of the number of items returned by the search, and a list of ten foods that contain the ingredient "sweet potatoes"' do
       visit root_path
 
-      fill_in :g, with: "sweet potatoes"
+      fill_in :q, with: "sweet potatoes"
 
       click_on "Search"
 
@@ -23,7 +23,7 @@ describe 'As a user, when I visit "/" '  do
     it "shows the foods's details (GTIN/UPC code, description, Brand Owner, ingredients) for each food" do
       visit root_path
 
-      fill_in :g, with: "sweet potatoes"
+      fill_in :q, with: "sweet potatoes"
 
       click_on "Search"
 

@@ -1,0 +1,11 @@
+<h1><%= @foods.count %> Results</h1>
+
+
+<% @foods.each do |food| %>
+  <ul class="ingredient">
+  <li class="food_code">GTIN/UPC code: <%= food[:gtinUpc] %></li>
+  <li class="description">Description: <%= food[:description] %></li>
+  <li class="brand">Brand: <%= food[:brandOwner] %></li>
+  <li class="ingredients">Ingredients: <%= food[:ingredients] %></li>
+  </ul>
+<% end %>
