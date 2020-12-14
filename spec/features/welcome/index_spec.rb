@@ -11,13 +11,9 @@ describe 'As a user, when I visit "/" '  do
 
       expect(current_path).to eq(foods_path)
 
-      expect(page).to have_content("2113 Results")
+      expect(page).to have_content("2113 Results Total")
 
       expect(page).to have_css(".ingredient", count: 10)
-
-      within(first(".ingredient")) do
-        expect(page).to have_css(".")
-      end
     end
 
     it "shows the foods's details (GTIN/UPC code, description, Brand Owner, ingredients) for each food" do
