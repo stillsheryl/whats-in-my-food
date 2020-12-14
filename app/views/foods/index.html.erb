@@ -3,9 +3,9 @@
 
 <% @foods.each do |food| %>
   <ul class="ingredient">
-  <li class="food_code">GTIN/UPC code: <%= food[:gtinUpc] %></li>
-  <li class="description">Description: <%= food[:description] %></li>
-  <li class="brand">Brand: <%= food[:brandOwner] %></li>
-  <li class="ingredients">Ingredients: <%= food[:ingredients] %></li>
+  <li class="description">Description: <%= food.description %></li>
+  <li class="food_code">GTIN/UPC code: <%= food.food_code %></li>
+  <li class="brand">Brand: <%= food.brand %></li>
+  <li class="ingredients">Ingredients: <%= food.ingredients %></li>
   </ul>
 <% end %>
