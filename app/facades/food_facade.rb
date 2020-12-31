@@ -1,28 +1,9 @@
 class FoodFacade
-
   def self.foods(keyword)
-    response = conn(keyword)
-    parse(response)
-  end
+    foods = FoodService.foods_by_query(keyword)
 
-  def self.total_search_results(keyword)
-    foods = foods(keyword)
-    foods[:totalHits]
-  end
-
-  private
-
-  def self.conn(keyword)
-    Faraday.get('https://api.nal.usda.gov/fdc/v1/foods/search') do |f|
-      f.params["api_key"] = ENV['USDA_API_KEY']
-      f.params["query"] = keyword
-      f.params["pageSize"] = 10
-      f.params["sortBy"] = "ingredients.keyword"
+    foods.map do |food_info|
+      Food.new(food_info)
     end
   end
-
-  def self.parse(response)
-    JSON.parse(response.body, symbolize_names: true)
-  end
-
 end

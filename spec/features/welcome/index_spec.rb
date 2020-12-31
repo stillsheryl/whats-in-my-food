@@ -11,7 +11,7 @@ describe 'As a user, when I visit "/" '  do
 
       expect(current_path).to eq(foods_path)
 
-      expect(page).to have_content("2113 Results Total")
+      expect(page).to have_content("2137 Results Total")
 
       expect(page).to have_css(".ingredient", count: 10)
     end
