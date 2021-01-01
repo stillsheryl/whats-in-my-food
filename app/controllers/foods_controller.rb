@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
   def index
-    @total_search_results = FoodService.total_in_search(params[:q])
-
     @foods = FoodFacade.foods(params[:q])
+
+    @total_search_results = FoodFacade.total_search_results(params[:q])
   end
 end
