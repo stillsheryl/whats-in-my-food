@@ -2,13 +2,7 @@ class FoodService
   def self.foods_by_query(keyword)
     response = conn(keyword)
 
-    JSON.parse(response.body, symbolize_names: true)[:foods]
-  end
-
-  def self.total_in_search(keyword)
-    response = conn(keyword)
-
-    JSON.parse(response.body, symbolize_names: true)[:totalHits]
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   private
